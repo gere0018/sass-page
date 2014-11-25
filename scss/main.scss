@@ -1,0 +1,99 @@
+/*********************
+Use SASS to write your CSS
+SASS files are:
+
+main.scss
+which will import:
+
+normalize.scss
+variables.scss
+mixins.scss
+sticky-footer.scss
+
+You may divide your sass into addition files as you wish.
+Eg:
+- grid.scss
+- buttons.scss
+*********************/
+
+@import "normalize";
+@import "variables";
+@import "mixins";
+@import "sticky-footer";
+
+h1{
+    text-align: center;
+    background-color: darken($color-2, 70% );
+}
+h2{
+    @include font-title;
+
+}
+h3, h4{
+    @include font-subtitle;
+}
+p{
+   @include font-text;
+}
+.wrapper{
+    margin: 0 auto;
+    background-color: darken($color-2, 10% );
+    }
+.masthead{
+   margin: 0 auto;
+
+}
+//breakpoints
+.row, .masthead{
+
+  @include clearfix;
+   box-sizing:border-box;
+   padding: 1%;
+   background-color: lighten($color-2, 8%);
+   margin: 0 auto;
+   @media (min-width: $breakpoint-mobile){
+   max-width:  $breakpoint-mobile;
+  }
+    @media (min-width: $breakpoint-small){
+    max-width:  $breakpoint-small;
+  }
+    @media screen and (min-width: $breakpoint-medium){
+    max-width:  $breakpoint-medium;
+    }
+    @media screen and (min-width: $breakpoint-large){
+    max-width:  $breakpoint-large;
+    }
+
+}
+
+.col-3{
+
+    @media (min-width: $breakpoint-small){
+        float:left;
+        @include equalSpaced(2, 2%, 100%);
+        }
+
+    @media screen and (min-width: $breakpoint-medium){
+        @include equalSpaced(3, 6%, 100%);
+    }
+    @media screen and (min-width: $breakpoint-large){
+        @include equalSpaced(3, 6%, 100%);
+    }
+
+ }
+
+
+.col-4{
+    @media (min-width: $breakpoint-small){
+        float:left;
+        @include equalSpaced(2, 1%, 100%);
+  }
+    @media screen and (min-width: $breakpoint-medium){
+        @include equalSpaced(4, 2%, 100%);
+    }
+   @media screen and (min-width: $breakpoint-large){
+        @include equalSpaced(4, 2%, 100%);
+    }
+
+
+}
