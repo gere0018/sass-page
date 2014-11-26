@@ -1,23 +1,24 @@
 @mixin font-title{
         font-family: Nova Mono;
         line-height: 1.000;
-        font-size: 2.500em;
+        font-size: 1.5rem;
         font-weight: normal;
         font-style: normal;
+        background-color: $color-6;
+
     }
    @mixin font-subtitle{
         font-family: Flamenco;
-        color: magenta;
-       text-decoration: underline;
-        line-height: 1.375;
-        font-size: 1.500em;
+        color: $magenta;
+        text-decoration: underline;
+        font-size: 1rem;
         font-weight: normal;
         font-style: normal;
     }
    @mixin font-text{
        font-family: Trebuchet MS;
 	   line-height: 1.563;
-        font-size: 1.000em;
+        font-size: 0.8rem;
         font-weight: normal;
         font-style: normal;
     }
@@ -37,6 +38,25 @@
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
 }
 
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin button{
+  background-color: $magenta;
+  color: white;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  padding: .5rem;
+  margin-left: 1rem;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  @include rounded();
+}
 
 // -- Equal Spaced Columns -- //
 // Number of Columns - First Column

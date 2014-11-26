@@ -7,12 +7,13 @@ html, body {
 }
 .wrapper {
 	min-height: 100%;
-	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+	margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
 }
 .footer, .push {
-	height: 100px; /* .push must be the same height as .footer */
+	height: 80px; /* .push must be the same height as .footer */
 }
 .footer{
     background-color: darken($color-2, 40% );
+    margin: 0 auto;
 }
 
