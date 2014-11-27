@@ -1,7 +1,7 @@
 //colors
 
 $color-1: lighten(magenta, 30%);
-$color-2: #FDB2FF;
+$color-2: lighten(#FDB2FF, 7%);
 $color-3: darken($color-2, 70%);
 $color-4: #A56BBF;
 $color-5: #7028A8;

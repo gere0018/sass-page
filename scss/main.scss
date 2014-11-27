@@ -16,10 +16,18 @@ Eg:
 - buttons.scss
 *********************/
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 @import "normalize";
 @import "variables";
 @import "mixins";
 @import "sticky-footer";
+
 
 h1{
     text-align: center;
@@ -37,40 +45,49 @@ h3, h4{
 p{
    @include font-text;
 }
+
 .wrapper{
     margin: 0 auto;
-    background-color: darken($color-2, 10% );
+    background-color: $color-2;
+
     }
+
+.masthead{
+   margin: 0 auto;
+   max-width:  $breakpoint-large;
+}
+
+.footer{
+    background-color: $color-3;
+    color: white;
+    margin: 0 auto;
+    max-width:  $breakpoint-large;
+    padding: 2% 0%;
+      p{
+    text-align: center;
+
+      }
+  @media (min-width: $breakpoint-large){
+      @include sticky-footer;
+  }
+}
+
 button{
     @include button;
-}
-.masthead{
-    background-color: $color-6;
-   margin: 0 auto;
+    font-size: 0.8rem;
 }
 
-.footer p{
-text-align: center;
-padding-top: 5%;
-}
-
+//svg color
 .accent .iconic-property-accent {
   fill: $color-5;
   stroke: $color-5;
 }
 
-
 //breakpoints
-.footer, .masthead{
- max-width:  $breakpoint-large;
-}
+
 
 .row{
-   outline: 2px solid #A56BBF;
   @include clearfix;
-   box-sizing:border-box;
-   padding: 1%;
-//   background-color: lighten($color-2, 8%);
    @include gradient($color-6, #FDB2FF);
    margin: 0 auto;
    @media (min-width: $breakpoint-mobile){
@@ -90,33 +107,40 @@ padding-top: 5%;
 }
 
 .col-3{
-    @media (min-width: $breakpoint-small){
+    min-height: 320px;
+    padding: 4rem 1rem;
+
+    @media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium){
         float:left;
-        height: 300px;
         @include equalSpaced(2, 2%, 100%);
-        }
-
+       }
     @media screen and (min-width: $breakpoint-medium){
-        @include equalSpaced(3, 6%, 100%);
-    }
-    @media screen and (min-width: $breakpoint-large){
+        float:left;
         @include equalSpaced(3, 6%, 100%);
 
     }
-
  }
 
 .col-4{
+
+    min-height:220px;
+        P{
+        @include font-text-2;
+        }
+        h4{
+         @include font-subtitle-2;
+        }
+
     @media (min-width: $breakpoint-small){
         float:left;
-        height: 200px;
         @include equalSpaced(2, 0%, 100%);
   }
     @media screen and (min-width: $breakpoint-medium){
         @include equalSpaced(4, 2%, 100%);
+        height: 290px;
     }
-   @media screen and (min-width: $breakpoint-large){
-        @include equalSpaced(4, 2%, 100%);
+    @media screen and (min-width: $breakpoint-large){
+        height: 240px;
     }
 
 }
@@ -124,10 +148,67 @@ padding-top: 5%;
 
 //Animation
 
-.box{
+.col-3{
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+      svg{
+        width:100%;
+        display: block;
+        position: relative;
+        transition: all 0.2s ease-in-out;
+      }
+      .mask{
+        min-height: 320px;
+        padding: 0rem 0.5rem;
+        background-color: $color-4;
+        transform: translateX(-320px);
+        opacity: 0.9;
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0
+      }
+      h3{
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        padding: 1rem;
+        background: $color-3;
+        margin: 20px 0 0 0;
+      }
+      p{
+        min-height: 320px;
+        position: relative;
+        opacity: 0;
+        transition: all 0.2s linear;
+        text-align: center;
+      }
+      &:hover{
+       .mask {
+//        width: 100%;
+        transform: translateX(0px);
+        }
+        svg{
+        transform: translateX(300px);
+        transition-delay: 0.1s;
+        }
+        p{
+        width: 100%;
+        opacity: 1;
+        transition-delay: 0.4s;
+        }
+
+    }
+
+}
+
+.col-4{
     transition:all 0.2s ease;
 
-     p, h4, h3{
+     p, h4{
       padding: 0.5rem;
       opacity: 0.7;
     }
@@ -142,10 +223,9 @@ padding-top: 5%;
         p, h4, h3{
           opacity: 1;
         }
-        -webkit-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-            transform: scale(1.1);
-
+        -webkit-transform: scale(1.02);
+        -moz-transform: scale(1.02);
+        transform: scale(1.02);
         box-shadow: inset 0 0 0 3px $color-4;
 
         border-radius:10%;
@@ -153,3 +233,5 @@ padding-top: 5%;
     }
 
 }
+
+

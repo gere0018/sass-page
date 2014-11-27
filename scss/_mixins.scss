@@ -1,27 +1,29 @@
 @mixin font-title{
-        font-family: Nova Mono;
-        line-height: 1.000;
-        font-size: 1.5rem;
-        font-weight: normal;
-        font-style: normal;
-        background-color: $color-6;
+        font-family: "Nova Mono", monospace;
+        font-size: 1.6rem;
+        text-align: center;
 
     }
    @mixin font-subtitle{
-        font-family: Flamenco;
-        color: $magenta;
-        text-decoration: underline;
-        font-size: 1rem;
-        font-weight: normal;
-        font-style: normal;
+        font-family: "Nova Oval", monospace;
+        font-size: 1.5rem;
+        color: darken($magenta, 5%);
+    }
+@mixin font-subtitle-2{
+        font-family: "Nova Oval", monospace;
+        font-size: 1.2rem;
+        color: darken($magenta, 5%);
     }
    @mixin font-text{
-       font-family: Trebuchet MS;
-	   line-height: 1.563;
-        font-size: 0.8rem;
-        font-weight: normal;
-        font-style: normal;
+        font-size: 1rem;
+        font-family: "Nova Slim", sans-serif;
+
     }
+    @mixin font-text-2{
+        font-size: 1rem;
+        font-family: "Nova Slim", sans-serif;
+    }
+
     @mixin clearfix {
       &:before,
       &:after {
@@ -45,7 +47,6 @@
 }
 
 @mixin button{
-  background-color: $magenta;
   color: white;
   display: inline-block;
   outline: none;
@@ -56,6 +57,24 @@
   margin-left: 1rem;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   @include rounded();
+  font-weight: bold;
+  border: solid 1px darken($color-6, 18%);
+  background: $color-6;
+  @include gradient(saturate($color-6, 15%), darken($magenta, 15%));
+
+  &:hover {
+    text-decoration: none;
+    background: saturate($color-5, 10%);
+    @include gradient(saturate($color-5, 5%), darken($color-5, 5%));
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+    color: saturate($color-6, 15%);
+    @include gradient(saturate($color-6, 15%), lighten($color-6, 15%));
+  }
+
 }
 
 // -- Equal Spaced Columns -- //
@@ -70,10 +89,10 @@
   // Remove Spacing from First Child
   &:first-child{
     margin-left: 0;
+  }
   &:nth-child(#{$num_of_cols}n + 1){
     margin-left: 0;
   }
-  }
-
 
 }
+

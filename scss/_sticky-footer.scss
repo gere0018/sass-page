@@ -1,19 +1,21 @@
+@mixin sticky-footer{
 
-* {
-	margin: 0;
-}
-html, body {
-	height: 100%;
-}
-.wrapper {
-	min-height: 100%;
-	margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
-}
-.footer, .push {
-	height: 80px; /* .push must be the same height as .footer */
-}
+
+    * {
+        margin: 0;
+    }
+    html, body {
+        height: 100%;
+    }
+    .wrapper {
+        min-height: 100%;
+        margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
+    }
+    .footer, .push {
+        height: 150px; /* .push must be the same height as .footer */
+    }
 .footer{
-    background-color: darken($color-2, 40% );
-    margin: 0 auto;
+    background-color: blue;
 }
 
+}
